@@ -1,12 +1,14 @@
 <h1> This is the landing page! </h1>
 
 <% if logged_in? %>
-	<h2> Welcome, <%= current_user.last_name %> </h2>
+	<h2> Welcome, <strong><%= current_user.last_name %></strong>! </h2>
 	<%= link_to "Log Out", logout_path, method: :delete %>
 	<% else %>
 <p>
   <%= link_to "Sign Up", signup_path %>
 
   <%= link_to "Log In", login_path %>
+
+  <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
 </p>
 	<% end %>
