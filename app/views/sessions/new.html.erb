@@ -1,15 +1,16 @@
 <div class="login">
-  <div class="container">
-    <div class="form">
-
     <h1>Log in</h1>
-
-    <%= form_for :session, url: login_path do |f| %>
-        <%= f.email_field :email, :placeholder => "Email" %> 
-        <%= f.password_field :password, :placeholder => "Password" %> 
-        <%= f.submit "Log in", class: "btn-submit" %>
-        <% end %>
-
+    <div class="form">
+        <%= form_for :session, url: login_path do |f| %>
+            <%= f.email_field :email, :placeholder => "Email" %>
+            <%= f.password_field :password, :placeholder => "Password" %> 
+           <%= f.submit "Log in", class: "btn btn-danger" %>
+            <% end %>
     </div>
-  </div>
+    <br>
+    <form method="get" action="/auth/facebook" id="sign_in">
+        <button class="btn btn-primary" type="submit">Facebook Login</button>
+    </form>
+
 </div>
+
