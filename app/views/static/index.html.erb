@@ -1,10 +1,12 @@
-<h1> This is the landing page! </h1>
+<div class="landing_image">
+		<div class="container-fluid">
+	<h1> This is the landing page! </h1>
 
-<% if logged_in? %>
-	<h2> Welcome, <strong><%= current_user.last_name %></strong>! </h2>
-	<%= link_to "Log Out", logout_path, method: :delete %>
-	<% else %>
-<p>
-
-</p>
-	<% end %>
+	<% if logged_in? %>
+		<h2> Welcome, <strong><%= current_user.last_name %></strong>! </h2>
+		<form method="get" action="listings/index">
+	        <button class="btn btn-primary" type="submit">View My Listings</button>
+	    </form>
+		<% end %>
+	</div>
+</div>

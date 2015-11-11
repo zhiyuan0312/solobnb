@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class ="col-md-4"></div>
+        <div class ="col-md-4 " >
+        <h2>List Your Space</h2>
+        <p>Solobnb lets you make money renting out your place.</p>
+        </div>
+        <div class ="col-md-4"></div>
+    </div>
+
+    <div class="listing_form">
+        <%= simple_form_for @listing do |f| %>
+            
+            <%= f.input :list_name %>
+            <%= f.input :description %>
+            <%= f.input :bedrooms, label:'No. of bedrooms', collection: 1..10 %>
+            <%= f.input :bathrooms, label:'No. of bathrooms', collection: 1..10 %>
+            <%= f.input :beds, label:'No. of beds', collection: 1..10 %>
+            <%= f.input :property_type, collection: ['Apartment','House','Bed & Breakfast','Other'] %>
+            <%= f.input :room_type, collection: ['Entire Home','Private Room','Shared room'] %>
+            <%= f.input :accomodates, collection: 1..10 %>
+            <%= f.input :location, as: :country %>
+            <%= f.input :price %>
+            <%= f.hidden_field :user_id, :value => current_user.id%>
+
+            <%= f.submit "Create listing" %>
+            <% end %>
+    </div>
+</div>

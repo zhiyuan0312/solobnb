@@ -8,7 +8,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 		<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
@@ -21,12 +20,12 @@
 	      </button>
 	      <a class="navbar-brand" href="/"><strong>Solobnb</strong></a>
 	    </div>
-
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#">Become a Host</a></li>
+	        <li><a href="/listings/new">Become a Host</a></li>
 	        <% if logged_in? %>
+	        <li><a href="#"><%= current_user.last_name %></a></li>
 	        <li><a href="/logout" data-method="delete">Logout</a></li>
 				<% else %>
 	        <li><a href="/login">Login</a></li>
@@ -36,9 +35,6 @@
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
-
-<div class="container-fluid">
 	<%= yield %>
-</div>
 </body>
 </html>

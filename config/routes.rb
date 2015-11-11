@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'listings/index' => 'listings#index'
+  get 'listings/new' => 'listings#new'
+  get 'listings/create'
+  get 'listings/edit'
+  get 'listings/update'
+  get 'listings/destroy'
+  get 'listings/:id' => 'listings#show'
+  resources :listings
+
   root 'static#index'
 
   get 'signup' => 'users#new'
@@ -7,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
   delete 'logout' => 'sessions#destroy'
   resources :sessions
 
