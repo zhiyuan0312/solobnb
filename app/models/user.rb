@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_secure_password
-  has_many :lisings
+  has_many :listings
+  mount_uploader :avatar, AvatarUploader
 
 	def self.from_omniauth(auth)
     where(provider: auth[:provider], uid: auth.uid).first_or_create do |user|

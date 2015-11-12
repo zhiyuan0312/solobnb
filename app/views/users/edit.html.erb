@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <div class="user_edit_form">
+        <h1>Edit Profile</h1>
+        <%= simple_form_for @user do |f| %>
+            <%= f.input :first_name, default: @user.first_name %>
+            <%= f.input :last_name, default: @user.last_name %>
+            <%= f.input :email, default: @user.email %>
+            <%= image_tag @user.avatar_url.to_s %>
+            <%= f.input :avatar, as: :file, label: "Profile Picture" %>
+            <%= f.button :submit %>
+        <% end %>
+    </div>
+</div>

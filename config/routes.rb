@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   root 'static#index'
 
   get 'signup' => 'users#new'
+  get 'users/edit' => 'users#edit'
+  post 'users/update' => 'users#update'
   resources :users
 
   get 'login' => 'sessions#new'
