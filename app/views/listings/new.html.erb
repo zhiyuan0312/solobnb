@@ -13,7 +13,7 @@
             
             <%= f.input :list_name %>
             <%= f.input :description %>
-            <%= f.input :bedrooms, label:'No. of bedrooms', collection: 1..10 %>
+            <%= f.input :bedrooms, label:'No. of bedrooms', collection: 1..10, default: 1 %>
             <%= f.input :bathrooms, label:'No. of bathrooms', collection: 1..10 %>
             <%= f.input :beds, label:'No. of beds', collection: 1..10 %>
             <%= f.input :property_type, collection: ['Apartment','House','Bed & Breakfast','Other'] %>
