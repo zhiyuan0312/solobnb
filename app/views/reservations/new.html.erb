@@ -1,0 +1,20 @@
+<div class="container-fluid">
+	<h1>Pick a date and time</h1>
+
+        <%= content_tag :div, class: "disabled_dates", data: {dates: reserved_dates(@listing.id)} do %>
+        <% end %>
+
+        <div class="reservation_form">
+        <%= form_for @reservation do |f| %>
+            <%= f.label :start_date %>
+            <%= f.text_field :start_date, :data => {:provide => 'datepicker'} %>
+            <%= f.label :end_date %>
+            <%= f.text_field :end_date, :data => {:provide => 'datepicker'} %>
+            <%= f.hidden_field :listing_id, :value => @listing.id %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :owner, :value => @listing.user_id %>
+            <%= f.submit "Create Reservation" %>
+            <% end %>
+        </div>
+
+</div>

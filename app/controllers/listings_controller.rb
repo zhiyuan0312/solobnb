@@ -3,6 +3,7 @@ require 'byebug'
 class ListingsController < ApplicationController
   def index
     @listings = Listing.all
+    @reservations = Reservation.where(owner: current_user.id)
   end
 
   def show
@@ -16,13 +17,16 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.create(listing_params)
-    byebug
     redirect_to '/'
+  end
+
+  def index_all
+    @listings = Listing.all
   end
 
   private
     def listing_params
-      params.require(:listing).permit(:list_name, :description, :bedrooms, :bathrooms, :beds, :property_type, :room_type, :accomodates, :location, :price, :user_id)
+      params.require(:listing).permit(:list_name, :description, :bedrooms, :bathrooms, :beds, :property_type, :room_type, :accomodates, :location, :price, :user_id, {pictures: []})
   end
 
   def edit

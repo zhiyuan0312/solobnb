@@ -1,0 +1,17 @@
+<div class="container-fluid">
+	<h1>Trips booked:</h1>
+	<table>
+		<% @reservation.each do |x| %>
+				<tr>
+					<td>
+						<%= x.listing.list_name %>
+						<br>
+						<strong>From:</strong>
+						<%= x.start_date %>
+						<strong>To:</strong>
+						<%= x.end_date %>
+				</td>
+			</tr>
+		<% end %>
+</table>
+</div>

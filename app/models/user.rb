@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_secure_password
   has_many :listings
+  has_many :reservations
   mount_uploader :avatar, AvatarUploader
 
 	def self.from_omniauth(auth)

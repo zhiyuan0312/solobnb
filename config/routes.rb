@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
 
+  get '/listings/:id/reservation/new' => 'reservations#new'
+  get 'reservations/create'
+  get 'reservations/show'
+  get 'reservations/index'
+  resources :reservations
+
   get 'listings/index' => 'listings#index'
   get 'listings/new' => 'listings#new'
+  get 'listings/index_all' => 'listings#index_all'
   get 'listings/create'
   get 'listings/edit'
   get 'listings/update'

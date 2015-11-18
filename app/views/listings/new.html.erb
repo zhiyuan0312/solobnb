@@ -14,13 +14,14 @@
             <%= f.input :list_name %>
             <%= f.input :description %>
             <%= f.input :bedrooms, label:'No. of bedrooms', collection: 1..10, default: 1 %>
-            <%= f.input :bathrooms, label:'No. of bathrooms', collection: 1..10 %>
-            <%= f.input :beds, label:'No. of beds', collection: 1..10 %>
-            <%= f.input :property_type, collection: ['Apartment','House','Bed & Breakfast','Other'] %>
-            <%= f.input :room_type, collection: ['Entire Home','Private Room','Shared room'] %>
-            <%= f.input :accomodates, collection: 1..10 %>
-            <%= f.input :location, as: :country %>
+            <%= f.input :bathrooms, label:'No. of bathrooms', collection: 1..10, default: 1 %>
+            <%= f.input :beds, label:'No. of beds', collection: 1..10, default: 1 %>
+            <%= f.input :property_type, collection: ['Apartment','House','Bed & Breakfast','Other'], default: 'Apartment' %>
+            <%= f.input :room_type, collection: ['Entire Home','Private Room','Shared room'], default: 'Entire Home' %>
+            <%= f.input :accomodates, collection: 1..10, default: 1 %>
+            <%= f.input :location, as: :country, default: "MY" %>
             <%= f.input :price %>
+            <%= f.file_field :pictures, multiple: true %>
             <%= f.hidden_field :user_id, :value => current_user.id%>
 
             <%= f.submit "Create listing" %>

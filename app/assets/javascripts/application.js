@@ -14,4 +14,19 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
 //= require_tree .
+
+$(document).on('page:change', function() {
+var myData = $('.disabled_dates').data("dates");
+ $('#reservation_start_date').datepicker({
+ 	 format: "yyyy/mm/dd",
+   autoclose: true,
+   datesDisabled: myData,
+   startDate: "today"});
+ $('#reservation_end_date').datepicker({
+ 	 format: "yyyy/mm/dd",
+	 autoclose: true,
+	 datesDisabled: myData,
+	 startDate: "today"});
+});

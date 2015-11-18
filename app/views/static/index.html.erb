@@ -4,9 +4,10 @@
 
 	<% if logged_in? %>
 		<h2> Welcome, <strong><%= current_user.last_name %></strong>! </h2>
-		<form method="get" action="listings/index">
-	        <button class="btn btn-primary" type="submit">View My Listings</button>
-	    </form>
+	  <rb>
+	  <form method="get" action="listings/index_all">
+	        <button class="btn btn-primary" type="submit">View All Listings</button>
+	  </form>
 		<% end %>
 	</div>
 </div>

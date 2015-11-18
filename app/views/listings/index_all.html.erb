@@ -1,0 +1,15 @@
+<div class="container-fluid">
+	<h1>All Other Listings</h1>
+	<table>
+		<% @listings.each do |listing| %>
+		<tr>
+			<td>
+				<% if listing.user_id != current_user.id %>
+				<a href="/listings/<%= listing.id %>">
+					<%= listing.list_name %>
+				</a>
+					<% end %>
+				<% end %>
+			</td>
+		</tr>
+</div>

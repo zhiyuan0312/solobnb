@@ -1,5 +1,12 @@
 <div class="container-fluid">
-	<h1>About <%= @listing.list_name %></h1>
+	<h1><%= @listing.list_name %></h1>
+
+	<% if @listing.user_id != current_user.id %>
+		<a href="/listings/<%= @listing.id %>/reservation/new">
+			Make A Reservation
+		</a>
+	<% end %>
+
 	<table>
 		<tr>
 			<td>
@@ -11,6 +18,41 @@
 					<p>Accomodates: <%= @listing.accomodates %></p>
 					<p>Location: <%= @listing.country_name %></p>
 					<p>Price: <%= @listing.price %></p>
+
 				</td>
 			</tr>
+				<% x = @listing.pictures.count - 1 %>
+						<div id="myCarousel" class="carousel slide" data-ride="carousel">
+							<ol class="carousel-indicators">
+								<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<% while x >= 1 %>
+								<li data-target="#myCarousel" data-slide-to="#{x}"></li>
+							<% x -= 1 %>
+						<% end %>
+					</ol>
+
+				<% y = @listing.pictures.count - 1 %>
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<%= image_tag @listing.pictures[0].standard %>
+						</div>
+						<% while y >= 1 %>
+							<div class="item">
+								<%= image_tag @listing.pictures[y].standard %>
+							</div>
+						<% y -= 1 %>
+						<% end %>
+					</div>
+
+			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+	      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	      <span class="sr-only">Previous</span>
+	  	</a>
+
+	    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		      <span class="sr-only">Next</span>
+	    </a>
+	  </div>
+
 	</div>
