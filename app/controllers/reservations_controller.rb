@@ -7,8 +7,8 @@ class ReservationsController < ApplicationController
 
   def create
   	@reservation = Reservation.new(reservation_params)
-    byebug
     if @reservation.save
+      SendEmailJob.set(wait: 10.seconds).perform_later(@reservation.user, @reservation.listing.user.first_name, @reservation.listing.list_name)
       redirect_to '/'
     else
       error_message 'reservation not available'
