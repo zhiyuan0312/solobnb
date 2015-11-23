@@ -13,8 +13,19 @@
             <%= f.hidden_field :listing_id, :value => @listing.id %>
             <%= f.hidden_field :user_id, :value => current_user.id %>
             <%= f.hidden_field :owner, :value => @listing.user_id %>
+                <div id="dropin"></div>
             <%= f.submit "Create Reservation" %>
             <% end %>
         </div>
+
+    <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+
+    <script>  
+      braintree.setup(
+        "<%= @client_token %>",
+        'dropin', {
+          container: 'dropin'
+      });
+    </script>
 
 </div>

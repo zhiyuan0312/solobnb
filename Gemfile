@@ -36,6 +36,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'validates_overlap'
 gem 'figaro'
 gem 'delayed_job_active_record'
+gem 'braintree'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
